@@ -3,6 +3,14 @@ const app = express()
 const port =5000
 //  db.js will connected and all element of food_items will return in terminal
 const mongoDB =require("./db")
+
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
 mongoDB();
 app.use((req,res,next)=>{
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3500");
@@ -12,7 +20,7 @@ app.use((req,res,next)=>{
     );
     next();
 })
-
+app.use(cors(corsOptions))
 app.use(express.json ())
 app.use('/api', require("./Routes/CreatUser"));
 app.use('/api', require("./Routes/DisplayData"));
