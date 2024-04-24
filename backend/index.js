@@ -8,7 +8,7 @@ const stripe=require("stripe")("sk_test_51P7b5USFN6I3Hid9yWDOYTBqvb7aqLcal8VknOQ
 const mongoDB =require("./db") 
 mongoDB();
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","https://gofoodfront-wiuy.onrender.com");
+    res.setHeader("Access-Control-Allow-Origin","http://localhost:3500");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
@@ -18,11 +18,11 @@ app.use((req,res,next)=>{
 
 app.use(express.json ())
 // start
-app.use(cors());
-// app.use(cors({
-//   origin:"*",
-//   credentials:true,
-// }));
+//app.use(cors());
+app.use(cors({
+  origin:"*",
+  credentials:true,
+}));
 app.post("/api/create-checkout-session",async(req,res)=>{
   const {products}=req.body;
   console.log('index.js PRODUCTS->',products);
@@ -41,10 +41,8 @@ app.post("/api/create-checkout-session",async(req,res)=>{
     payment_method_types:["card"], 
     line_items:lineItems,
     mode:"payment",
-    //success_url:"http://localhost:3500/myorder",
-    //cancel_url:"http://localhost:3500/cancel",
-    success_url:"https://gofoodfront-wiuy.onrender.com/myorder",
-    cancel_url:"https://gofoodfront-wiuy.onrender.com/cancel",
+    success_url:"http://localhost:3500/myorder",
+    cancel_url:"http://localhost:3500/cancel",
   })
   res.json({id:session.id})
 })
