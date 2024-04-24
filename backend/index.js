@@ -8,7 +8,7 @@ const stripe=require("stripe")("sk_test_51P7b5USFN6I3Hid9yWDOYTBqvb7aqLcal8VknOQ
 const mongoDB =require("./db") 
 mongoDB();
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","http://localhost:3500");
+    res.setHeader("Access-Control-Allow-Origin","https://gofoodfront-wiuy.onrender.com");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
