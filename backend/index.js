@@ -18,7 +18,10 @@ app.use((req,res,next)=>{
 
 app.use(express.json ())
 // start
-app.use(cors());
+app.use(cors({
+  origin:"*",
+  credentials:true,
+}));
 app.post("/api/create-checkout-session",async(req,res)=>{
   const {products}=req.body;
   console.log('index.js PRODUCTS->',products);
