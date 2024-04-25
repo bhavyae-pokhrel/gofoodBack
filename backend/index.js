@@ -43,8 +43,8 @@ app.post("/api/create-checkout-session",async(req,res)=>{
     mode:"payment",
     //success_url:"http://localhost:3500/myorder",
     //cancel_url:"http://localhost:3500/cancel",
-    success_url:"https://gofoodfront-wiuy.onrender.com//myorder",
-    cancel_url:"https://gofoodfront-wiuy.onrender.com//cancel",
+    success_url:"https://gofoodfront-wiuy.onrender.com/myorder",
+    cancel_url:"https://gofoodfront-wiuy.onrender.com/cancel",
   })
   res.json({id:session.id})
 })
