@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const mongoURI="mongodb+srv://gofood:mern123@cluster0.vedgbed.mongodb.net/gofoodmern?retryWrites=true&w=majority"
+const mongoURI="mongodb+srv://gofood:mern123@cluster0.rxgwkhq.mongodb.net/gofoodmern"
 
 const mongoDB =async() =>{
     mongoose.set('strictQuery', true)
