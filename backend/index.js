@@ -8,7 +8,7 @@ const stripe=require("stripe")("sk_test_51P7b5USFN6I3Hid9yWDOYTBqvb7aqLcal8VknOQ
 const mongoDB =require("./db") 
 mongoDB();
 app.use((req,res,next)=>{
-    res.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self';");
+    res.setHeader('Content-Security-Policy', "img-src 'self' data:;");
     res.setHeader("Access-Control-Allow-Origin","https://gofood-front.vercel.app/");
     res.header(
       "Access-Control-Allow-Headers",
